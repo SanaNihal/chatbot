@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#667eea,#764ba2);
+        }
+
+        .container{
+            width:90%;
+            max-width:500px;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:20px;
+            color:#333;
+        }
+
+        form{
+            display:flex;
+            flex-direction:column;
+            gap:15px;
+        }
+
+        input[type="text"]{
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:16px;
+        }
+
+        input[type="file"]{
+            padding:10px;
+            border:1px dashed #999;
+            border-radius:8px;
+            cursor:pointer;
+        }
+
+        button{
+            padding:12px;
+            background:#667eea;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#5563d6;
+        }
+
+        .response{
+            margin-top:20px;
+            padding:15px;
+            background:#f4f6ff;
+            border-left:4px solid #667eea;
+            border-radius:8px;
+        }
+
+        .response h3{
+            margin-bottom:8px;
+            color:#333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>AI Chatbot</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            <input type="text" name="user" placeholder="Ask your question..." required>
+
+            <input type="file" name="file" accept=".pdf">
+
+            <button type="submit">Ask</button>
+        </form>
+
+        {% if replay %}
+        <div class="response">
+            <h3>Response</h3>
+            <p>{{ replay }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html> 
